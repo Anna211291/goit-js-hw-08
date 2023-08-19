@@ -33,4 +33,3 @@ let galleryModal = new SimpleLightbox('.gallery a', {
 galleryModal.on('show.simplelightbox', function () {
 
 });
-console.log("hello");
