@@ -8,6 +8,9 @@ const LOCALS_KEY = "videoplayer-current-time";
 function onPlay(data) {
     let currentTime = data.seconds;
     localStorage.setItem(LOCALS_KEY, currentTime);
+   if (currentTime === data.duration) {
+        localStorage.removeItem(LOCALS_KEY);
+   }
 }
 
 player.on('timeupdate', throttle(onPlay, 1000));
@@ -15,8 +18,6 @@ player.on('timeupdate', throttle(onPlay, 1000));
 const playedTime = localStorage.getItem(LOCALS_KEY);
 
 player.setCurrentTime(playedTime).then(function (seconds) {
-        // seconds = playedTime;
-    // seconds = the actual time that the player seeked to
 }).catch(function(error) {
     switch (error.name) {
         case 'RangeError':
