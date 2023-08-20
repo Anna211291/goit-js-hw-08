@@ -22,6 +22,5 @@ function submitForm(evt) {
     evt.preventDefault();
     console.log(inputs);
     localStorage.removeItem(LOCALS_KEY);
-    email.value = "";
-    message.value = "";
+    form.reset();
 };
