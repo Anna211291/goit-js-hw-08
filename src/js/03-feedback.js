@@ -19,8 +19,12 @@ localStorage.setItem(LOCALS_KEY, JSON.stringify(inputs));
 };
 
 function submitForm(evt) {
+    if (email.value === "" || message.value === "") {
+        return (alert("Please complete all required fields and submit"))
+    }
     evt.preventDefault();
     console.log(inputs);
     localStorage.removeItem(LOCALS_KEY);
     form.reset();
+    inputs = {};
 };
